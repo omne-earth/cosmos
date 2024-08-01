@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -ueox pipefail
 
-git clone https://github.com/SWIFTSIM/SWIFT.git
+git clone git@github.com:climateactionproject-shree/SWIFT.git
 cd SWIFT
 ./autogen.sh
 ./configure
