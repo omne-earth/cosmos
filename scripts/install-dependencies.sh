@@ -27,3 +27,6 @@ sudo apt install -y python3 python3-venv
 
 # publish dependencies
 sudo apt install -y texlive-full
+
+# animation dependencies
+sudo apt install -y ffmpeg

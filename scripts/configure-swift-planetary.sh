@@ -7,5 +7,5 @@ fi
 
 cd SWIFT
 ./autogen.sh
-./configure
+./configure --with-hydro=planetary --with-equation-of-state=planetary
 make
