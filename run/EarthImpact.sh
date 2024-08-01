@@ -16,7 +16,10 @@ then
 fi
 
 # Run SWIFT
-../../../swift -s -G -t 32 earth_impact.yml 2>&1 | tee output.log
+start=$(date +%s)
+../../../swift --hydro --self-gravity --threads=32 earth_impact.yml
+end=$(date +%s)
+echo "run completed in " $(( end - start ))  "seconds"
 
 # # Plot the snapshots
 # python3 plot_solution.py

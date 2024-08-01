@@ -10,6 +10,9 @@ pip install -r ../../../../requirements/SmallCosmoVolume_hydro.txt
 
 ./getIC.sh
 
+start=$(date +%s)
 ../../../swift --cosmology --self-gravity --hydro --threads=32 small_cosmo_volume.yml
+end=$(date +%s)
+echo "run completed in " $(( end - start ))  "seconds"
 
 python3 plotProjection.py 31
