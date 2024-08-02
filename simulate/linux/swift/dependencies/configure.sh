@@ -10,7 +10,9 @@ cd $1
 case "$2" in
     "planetary")
         ./configure --with-hydro=planetary --with-equation-of-state=planetary ;;
-    *)
+    "default")
         ./configure ;;
+    *)
+        echo "please provide a valid configuration scheme" && exit 1;;
 esac
 make

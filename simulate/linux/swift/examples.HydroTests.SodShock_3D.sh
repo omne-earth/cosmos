@@ -1,13 +1,8 @@
 #!/usr/bin/bash
 set -ueox pipefail
+source "$(echo $0 | sed 's|\(.*\)/.*|\1|')/bootstrap.sh" ${1:-default} "default" $(dirname -- "$0")
 
-./scripts/linux/configure/vanilla.sh
-
-cd SWIFT/examples/HydroTests/SodShock_3D
-python3 -m venv venv
-source venv/bin/activate
-pip install -r ../../../../requirements/SodShock_3D.txt
-
+set -ueox pipefail
 # Get the initial conditions if they are not present.
 if [ ! -e glassCube_32.hdf5 ] || [ ! -e glassCube_64.hdf5 ];
 then
@@ -17,7 +12,7 @@ then
 fi
 
 start=$(date +%s)
-../../../swift --hydro --threads=32 sodShock.yml
+../../../swift --hydro --threads=4 sodShock.yml
 end=$(date +%s)
 echo "run completed in " $(( end - start ))  "seconds"
 

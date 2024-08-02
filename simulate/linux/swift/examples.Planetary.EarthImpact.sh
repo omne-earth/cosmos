@@ -1,20 +1,16 @@
 #!/usr/bin/bash
-# set -ueox pipefail
-
-script_path_raw=$0
-script_directory=$(echo ${script_path_raw} | sed 's|\(.*\)/.*|\1|')
-source "${script_directory}/bootstrap.sh" $1
+set -ueox pipefail
+source "$(echo $0 | sed 's|\(.*\)/.*|\1|')/bootstrap.sh" ${1:-default} "planetary" $(dirname -- "$0")
 
 # Get the initial conditions if they are not present.
-if [ ! -e earth_impact.hdf5 ]
-then
+if [[ ! -e earth_impact.hdf5 ]]; then
     echo "Fetching initial conditions file..."
     ./get_init_cond.sh
 fi
 
 # Run SWIFT
 start=$(date +%s)
-../../../swift --hydro --self-gravity --threads=32 earth_impact.yml
+../../../swift --hydro --self-gravity --threads=16 earth_impact.yml
 end=$(date +%s)
 echo "run completed in " $(( end - start ))  "seconds"
 
