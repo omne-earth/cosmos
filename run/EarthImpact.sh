@@ -22,8 +22,8 @@ end=$(date +%s)
 echo "run completed in " $(( end - start ))  "seconds"
 
 # # Plot the snapshots
-# python3 plot_solution.py
+python3 plot_solution.py
 
 # # Make a simple animation
-# ./make_anim.sh
+./make_anim.sh
 
