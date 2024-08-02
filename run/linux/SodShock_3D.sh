@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -ueox pipefail
 
-./scripts/configure/linux/vanilla.sh
+./scripts/linux/configure/vanilla.sh
 
 cd SWIFT/examples/HydroTests/SodShock_3D
 python3 -m venv venv
