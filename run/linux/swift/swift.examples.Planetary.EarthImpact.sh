@@ -1,12 +1,9 @@
 #!/usr/bin/bash
-set -ueox pipefail
+# set -ueox pipefail
 
-./scripts/linux/configure/planetary.sh
-
-cd SWIFT/examples/Planetary/EarthImpact
-python3 -m venv venv
-source venv/bin/activate
-pip install -r ../../../../requirements/EarthImpact.txt
+script_path_raw=$0
+script_directory=$(echo ${script_path_raw} | sed 's|\(.*\)/.*|\1|')
+source "${script_directory}/bootstrap.sh" $1
 
 # Get the initial conditions if they are not present.
 if [ ! -e earth_impact.hdf5 ]
