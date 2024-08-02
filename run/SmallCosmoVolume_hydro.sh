@@ -8,7 +8,12 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r ../../../../requirements/SmallCosmoVolume_hydro.txt
 
-./getIC.sh
+# Get the initial conditions if they are not present.
+if [ ! -e small_cosmo_volume.hdf5 ]
+then
+    echo "Fetching initial conditions file..."
+    ./getIC.sh
+fi
 
 start=$(date +%s)
 ../../../swift --cosmology --self-gravity --hydro --threads=32 small_cosmo_volume.yml
