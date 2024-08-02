@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -ueox pipefail
 
-./scripts/configure-swift.sh
+./scripts/configure/linux/vanilla.sh
 
 cd SWIFT/examples/SmallCosmoVolume/SmallCosmoVolume_hydro
 python3 -m venv venv

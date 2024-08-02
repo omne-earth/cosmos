@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -ueox pipefail
 
-scripts/configure-swift-planetary.sh
+scripts/configure/linux/planetary.sh
 
 cd SWIFT/examples/Planetary/EarthImpact
 python3 -m venv venv

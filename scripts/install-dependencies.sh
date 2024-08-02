@@ -5,7 +5,7 @@ sudo apt update -y
 sudo apt upgrade -y
 
 # build dependencies
-sudo apt install -y autoconf make build-essential
+sudo apt install -y autoconf make build-essential mingw-w64
 
 # main dependencies
 sudo apt install -y libhdf5-serial-dev
