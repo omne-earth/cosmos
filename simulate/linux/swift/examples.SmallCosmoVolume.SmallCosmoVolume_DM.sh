@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 set -ueox pipefail
-source "$(echo $0 | sed 's|\(.*\)/.*|\1|')/bootstrap.sh" ${1:-default} "default" $(dirname -- "$0")
+source "$(echo $0 | sed 's|\(.*\)/.*|\1|')/bootstrap.sh" ${1:-default} "default" $(dirname -- "$0") 3.12
 
 # Get the initial conditions if they are not present.
 if [ ! -e small_cosmo_volume.hdf5 ]

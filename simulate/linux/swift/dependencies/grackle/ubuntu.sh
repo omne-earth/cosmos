@@ -11,7 +11,6 @@ cd ${HOME}/tmp/grackle
 
 # Build grackle for linux-gnu
 cd src/clib
-sudo apt install -y gfortran xutils-dev
 make machine-linux-gnu
 make show-config
 make

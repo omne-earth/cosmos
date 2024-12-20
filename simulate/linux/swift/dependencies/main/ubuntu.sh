@@ -22,6 +22,9 @@ sudo apt install -y google-perftools
 sudo apt install -y libhealpix-dev
 sudo apt install -y libcfitsio-dev
 
+# grackle dependencies
+sudo apt install -y gfortran xutils-dev
+
 # post-run dependencies
 sudo apt install -y python3 python3-venv
 
